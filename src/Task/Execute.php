@@ -28,13 +28,13 @@ class Execute
         $serializer = new Serializer($this->wrapper);
 
         if($this->await){
-            $command ='php -f /home/gabriel/PhpstormProjects/fastwork-async/src/exec.php \'' . $serializer->serialize() . '\' > /dev/null 2>&1 &';
+            $command ='php -f ' . getenv('root_folder') . 'exec.php \'' . $serializer->serialize() . '\' > /dev/null 2>&1 &';
 
             $pid = exec($command, $output);
         var_dump($output);
             return $output;
         }else{
-            $command ='php -f /home/gabriel/PhpstormProjects/fastwork-async/src/exec.php \'' . $serializer->serialize() . '\'';
+            $command ='php -f ' . getenv('root_folder') . 'exec.php \'' . $serializer->serialize() . '\'';
             exec($command);
             return true;
         }

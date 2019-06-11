@@ -1,0 +1,7 @@
+#1 [PID=14167, StartedAt=2019-06-10 22:32:42.000000 -03]
+#2 unserializing 
+#3 Executing 
+#1 [PID=14195, StartedAt=2019-06-10 22:33:04.000000 -03]
+#2 unserializing 
+#3 Executing Opis\Closure\SerializableClosure
+#4 [PID=14195, EndedAt=2019-06-10 22:33:04.000000 -03, ElapsedTime=0.0081441402435303]

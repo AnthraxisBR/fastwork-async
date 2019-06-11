@@ -8,6 +8,7 @@ use AnthraxisBR\AdvancedTyping\Types\ListObjects;
 use AnthraxisBR\FwAdvancedCollection\Collection\Collection;
 use AnthraxisBR\FwAsync\Methods\Assync;
 use AnthraxisBR\FwAsync\Task\Execute;
+use Dotenv\Dotenv;
 use Opis\Closure\SerializableClosure;
 
 class Commands
@@ -62,6 +63,10 @@ class Commands
     }
 }
 
+$dotenv = \Dotenv\Dotenv::create('/home/gabriel/PhpstormProjects/fastwork-async/');
+$dotenv->load();
+
+var_dump(getenv('root_folder'));
 
 $a = new Commands();
 
