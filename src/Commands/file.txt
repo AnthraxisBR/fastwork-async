@@ -1,0 +1,1 @@
+C:32:"Opis\Closure\SerializableClosure":181:{a:5:{s:3:"use";a:0:{}s:8:"function";s:58:"function(){\n    echo \AnthraxisBR\FwAsync\Sum::sum(2,5);\n}";s:5:"scope";N;s:4:"this";N;s:4:"self";s:32:"000000001913aba000000000268bdb7b";}}

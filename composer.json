@@ -1,0 +1,28 @@
+{
+    "name": "anthraxisbr/fastwork-async",
+    "authors": [
+        {
+            "name": "Gabriel Melo",
+            "email": "gabrielmouraodemelo@gmail.com"
+        }
+    ],
+    "require": {
+        "tightenco/collect": "^5.8.19",
+        "symfony/process": "^4.3",
+        "opis/closure":"^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "AnthraxisBR\\FwAsync\\": "src/",
+            "AnthraxisBR\\FwAdvancedTyping\\": "advanced_typing/src",
+            "AnthraxisBR\\FwAdvancedCollection\\": "advanced_collection/src",
+            "tests\\" : "tests/"
+        },
+        "psr-0": {
+            "AnthraxisBR\\FwAsync\\": "src/",
+            "AnthraxisBR\\FwAdvancedTyping\\": "advanced_typing/src",
+            "AnthraxisBR\\FwAdvancedCollection\\": "advanced_collection/src",
+            "tests\\" : "tests/"
+        }
+    }
+}
