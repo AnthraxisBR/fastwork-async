@@ -2,6 +2,9 @@
 
 namespace AnthraxisBR\FwAsync\Process;
 
+use AnthraxisBR\FwAsync\Filebase\ProcessFilebase;
+use Symfony\Component\Process\Process;
+
 class ProcessManager
 {
 
@@ -21,23 +24,40 @@ class ProcessManager
 
     public $pid;
 
+    public $filebase;
+
+    public $process = [
+        'pid' => 0,
+        'status' => 'running', // running|stoped|broken
+        'started_at' => ''
+    ];
+
     public function __construct($started_microtime)
     {
         $this->started_microtime = $started_microtime;
 
         $this->locker = new Locker();
+        $this->locker->write('asdasdsad');
 
         $this->pid = getmypid();
+
+        $this->filebase = new ProcessFilebase();
 
         $this->locker->pid = $this->pid;
 
         $this->started_at = date('Y-m-d H:i:s.u T');
 
+        $this->process = [
+            'pid' => $this->pid,
+            'status' => 'running', // running|stoped|broken
+            'started_at' => $this->started_at
+        ];
+
+        $this->filebase->addProcess($this->process);
     }
 
     public function start($closure)
     {
-
         $str = '[StartedAt=' . $this->started_at . ']';
 
         $this->locker->write($str);

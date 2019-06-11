@@ -66,12 +66,11 @@ class Commands
 $dotenv = \Dotenv\Dotenv::create('/home/gabriel/PhpstormProjects/fastwork-async/');
 $dotenv->load();
 
-var_dump(getenv('root_folder'));
 
 $a = new Commands();
 
 $a->addCommand((new Assync(function(){
     return \AnthraxisBR\FwAsync\Sum::sum(2,5);
-}))->await());
+})));
 
 $a->boot();

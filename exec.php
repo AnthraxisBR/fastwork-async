@@ -10,7 +10,7 @@ $serialized = $argv[1];
 $dotenv = \Dotenv\Dotenv::create(__DIR__);
 $dotenv->load();
 
-return new \AnthraxisBR\FWasync\Task\Receiver($start, $serialized);
+return new \AnthraxisBR\FwAsync\Task\Receiver($start, $serialized);
 
 
 

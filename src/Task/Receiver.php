@@ -17,22 +17,26 @@ class Receiver
 
     public function __construct($started, $serialized)
     {
-        //$this->closure = unserialize($serialized);
+        $this->closure = unserialize($serialized);
+
+        $l = new Locker();
+        $l->write('asdsad');
 
         $processManager = new ProcessManager($started);
 
         $processManager->start(function(Locker $locker){
             $locker->write('Running ');
-            //$this->run();
+            $this->run();
         });
     }
 
 
     public function run()
     {
-        return $this->closure();
+        $closure = $this->closure;
+        return $closure();
     }
 
 }
 
-$r = new Receiver(microtime(true),'');
+//$r = new Receiver(microtime(true),'');
