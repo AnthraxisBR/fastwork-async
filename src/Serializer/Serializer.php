@@ -16,20 +16,68 @@ class Serializer
 
     public function __construct(SerializableClosure $wrapper)
     {
-        $this->wrapper = $wrapper;
+        $this->setWrapper($wrapper);
     }
 
     public function serialize()
     {
-        $serializable = $this->wrapper->serialize();
-        $this->serialized = serialize($this->wrapper);
-        return $this->serialized;
+        $this->setSerialized(serialize($this->wrapper));
+        return $this->getSerialized();
     }
 
     public function unserialize()
     {
-        $this->closure = unserialize($this->serialized);
+        $this->setClosure(unserialize($this->getSerialized()));
+        return $this->getClosure();
+    }
+
+    /**
+     * @return SerializableClosure
+     */
+    public function getWrapper(): SerializableClosure
+    {
+        return $this->wrapper;
+    }
+
+    /**
+     * @param SerializableClosure $wrapper
+     */
+    public function setWrapper(SerializableClosure $wrapper): void
+    {
+        $this->wrapper = $wrapper;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSerialized()
+    {
+        return $this->serialized;
+    }
+
+    /**
+     * @param mixed $serialized
+     */
+    public function setSerialized($serialized): void
+    {
+        $this->serialized = $serialized;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClosure()
+    {
         return $this->closure;
     }
+
+    /**
+     * @param mixed $closure
+     */
+    public function setClosure($closure): void
+    {
+        $this->closure = $closure;
+    }
+
 
 }

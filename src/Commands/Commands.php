@@ -5,11 +5,12 @@ namespace AnthraxisBR\FwAsync\Commands;
 include "../../vendor/autoload.php";
 
 use AnthraxisBR\AdvancedTyping\Types\ListObjects;
-use AnthraxisBR\FwAdvancedCollection\Collection\Collection;
+//use AnthraxisBR\FwAdvancedCollection\Collection\Collection;
 use AnthraxisBR\FwAsync\Methods\Assync;
 use AnthraxisBR\FwAsync\Task\Execute;
 use Dotenv\Dotenv;
 use Opis\Closure\SerializableClosure;
+use Tightenco\Collect\Support\Collection;
 
 class Commands
 {
@@ -37,7 +38,7 @@ class Commands
     /**
      * @return ListObjects
      */
-    public function getCommands(): ListObjects
+    public function getCommands()
     {
         return $this->commands;
     }
@@ -45,7 +46,7 @@ class Commands
     /**
      * @param ListObjects $commands
      */
-    public function setCommands(ListObjects $commands): void
+    public function setCommands($commands): void
     {
         $this->commands = $commands;
     }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "001930eb5d4e6cdd3df4cf6c0a5ae627",
+    "content-hash": "407e01d83baee820dce4196122caf9cf",
     "packages": [
         {
             "name": "filebase/filebase",

@@ -13,18 +13,28 @@ use AnthraxisBR\FwAsync\Process\ProcessManager;
 class Receiver
 {
 
+    /**
+     * @var
+     */
     public $closure;
+
+    /**
+     * @var
+     */
+    public $process_manager;
 
     public function __construct($started, $serialized)
     {
-        $this->closure = unserialize($serialized);
+        $this->setClosure(unserialize($serialized));
 
-        $l = new Locker();
-        $l->write('asdsad');
+        $this->setProcessManager(new ProcessManager($started));
 
-        $processManager = new ProcessManager($started);
+        $this->startProcess();
+    }
 
-        $processManager->start(function(Locker $locker){
+    public function startProcess()
+    {
+        $this->getProcessManager()->start(function(Locker $locker){
             $locker->write('Running ');
             $this->run();
         });
@@ -36,6 +46,41 @@ class Receiver
         $closure = $this->closure;
         return $closure();
     }
+
+    /**
+     * @return ProcessManager
+     */
+    public function getProcessManager()
+    {
+        return $this->process_manager;
+    }
+
+    /**
+     * @param ProcessManager $process_manager
+     */
+    public function setProcessManager($process_manager)
+    {
+        $this->process_manager = $process_manager;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getClosure()
+    {
+        return $this->closure;
+    }
+
+    /**
+     * @param mixed $closure
+     */
+    public function setClosure($closure)
+    {
+        $this->closure = $closure;
+    }
+
 
 }
 

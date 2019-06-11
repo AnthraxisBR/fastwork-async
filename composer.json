@@ -7,7 +7,7 @@
         }
     ],
     "require": {
-        "tightenco/collect": "^5.8.19",
+        "tightenco/collect": "^5.8",
         "symfony/process": "^4.3",
         "opis/closure":"^3.3",
         "vlucas/phpdotenv": "^3.3",
